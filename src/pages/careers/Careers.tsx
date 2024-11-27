@@ -23,9 +23,10 @@ export default function Careers() {
 
 // data loader
 export const careersLoader = async () => {
-  const res = await fetch('http://localhost:4000/careers')
-  if (!res.ok) {
-    throw Error('Could not fetch the list of careers')
+  const res = await fetch('https://polling-application-backend-8e27cfd2d48e.herokuapp.com/api/polls/all')
+    // const res = await fetch('http://localhost:4000/careers')
+    if (!res.ok) {
+      throw Error('Could not fetch the list of careers')
+    }
+    return res.json()
   }
-  return res.json()
-}

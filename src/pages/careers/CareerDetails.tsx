@@ -8,7 +8,6 @@ interface Career {
 }
 
 export default function CareerDetails() {
-  const { id } = useParams()
   const career = useLoaderData() as Career;
 
   return (
@@ -25,9 +24,10 @@ export default function CareerDetails() {
 
 // data loader
 export const careerDetailsLoader = async ({ params }: LoaderFunctionArgs): Promise<Career> => {
-  const { id } = params;
+  // const { id } = params;
 
-  const res = await fetch('http://localhost:4000/careers/' + id);
+  // const res = await fetch('http://localhost:4000/careers/' + id);
+  const res =  await fetch('https://polling-application-backend-8e27cfd2d48e.herokuapp.com/api/polls/all')
   if (!res.ok) {
     throw Error('Could not find that career.')
   }
